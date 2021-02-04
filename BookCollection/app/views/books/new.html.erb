@@ -1,0 +1,32 @@
+<h1>New Book</h1>
+
+<%= form_with model: @book do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+  </div>
+
+  <div>
+    <%= form.label :genre %><br>
+    <%= form.select :genre, [["Mystery", "My"], ["Romance", "Ro"], ["Fantasy", "Fa"], ["Science Fiction", "SciFi"], ["Other", "Ot"]] %>
+  </div>
+
+  <div>
+    <%= form.label :price %><br>
+    <%= form.text_field :price %>
+  </div>
+
+  <div>
+    <%= form.label :"Published Date" %><br>
+    <%= form.text_field :publishedDate %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

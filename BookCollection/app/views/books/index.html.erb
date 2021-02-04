@@ -4,8 +4,7 @@
 <ul>
   <% @books.each do |book| %>
     <li>
-        <a href="/books/<%= book.id %>">
-        <%= book.title %>
+        <%= link_to book.title, book %>
         </a>
     </li>
   <% end %>
