@@ -1,0 +1,55 @@
+<%= form_with model: book do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% book.errors.full_messages_for(:title).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+  <br>
+
+  <div>
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+    <% book.errors.full_messages_for(:author).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+  <br>
+
+  <div>
+    <%= form.label :genre %><br>
+    <%= form.select :genre, [["Mystery", "My"], ["Romance", "Ro"], ["Fantasy", "Fa"], ["Science Fiction", "SciFi"], ["Other", "Ot"]] %>
+    <% book.errors.full_messages_for(:genre).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :price %><br>
+    <%= form.text_field :price %>
+    <% book.errors.full_messages_for(:price).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :"Published Date" %><br>
+    <%= form.text_field :publishedDate %>
+    <% #form.date_select date %>
+    <% #form.hidden_field :publishedDate, value:"#{"date(2i)"}/#{"date(3i)"}/#{"date(1i)"}" %>
+    <% book.errors.full_messages_for(:publishedDate).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
