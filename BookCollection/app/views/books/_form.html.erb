@@ -40,9 +40,10 @@
 
   <div>
     <%= form.label :"Published Date" %><br>
-    <%= form.text_field :publishedDate %>
-    <% #form.date_select date %>
-    <% #form.hidden_field :publishedDate, value:"#{"date(2i)"}/#{"date(3i)"}/#{"date(1i)"}" %>
+    <%= form.date_field("publishedDate", value: book.publishedDate) %>
+    <% #form.text_field :publishedDate %>
+    <% #form.date_select("publishedDate", order: [:day, :month, :year] , prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, date_separator: "/") %>
+    <% #form.hidden_field :publishedDate, value:"#{"publishedDate(2i)"}/#{"publishedDate(3i)"}/#{"publishedDate(1i)"}" %>
     <% book.errors.full_messages_for(:publishedDate).each do |message| %>
         <div><%= message %></div>
         <% end %>
