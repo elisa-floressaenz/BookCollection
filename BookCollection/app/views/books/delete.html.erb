@@ -1,0 +1,5 @@
+<%= link_to "Back To List", books_path %>
+<h1>Are you sure?</h1>
+
+<%= link_to "Yes", book_path(@book.id), method: :delete %>
+<%= link_to "No", book_path(@book) %>

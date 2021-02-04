@@ -5,6 +5,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    flash.alert = "#{@book.title} was shown."
+
   end
 
   def new 
@@ -15,7 +17,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to @book
+      redirect_to root_path, notice: "#{@book.title} was added."
     else
       render :new
     end
@@ -29,17 +31,22 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     if @book.update(book_params)
-      redirect_to @book
+      redirect_to root_path, notice: "#{@book.title} was updated."
     else
       render :edit
     end
   end
 
+  def delete
+    @book = Book.find(params[:id])
+    ##redirect_to "delete", :id => params[:id]
+  end  
+
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
 
-    redirect_to root_path
+    redirect_to root_path , notice: "#{@book.title} was deleted."
   end
 
 

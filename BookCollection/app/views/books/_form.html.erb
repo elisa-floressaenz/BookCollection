@@ -1,3 +1,4 @@
+<%= link_to "Back To List", books_path %>
 <%= form_with model: book do |form| %>
   <div>
     <%= form.label :title %><br>
@@ -19,7 +20,7 @@
 
   <div>
     <%= form.label :genre %><br>
-    <%= form.select :genre, [["Mystery", "My"], ["Romance", "Ro"], ["Fantasy", "Fa"], ["Science Fiction", "SciFi"], ["Other", "Ot"]] %>
+    <%= form.select :genre, [["Mystery", "Mystery"], ["Romance", "Romance"], ["Fantasy", "Fantasy"], ["Science Fiction", "Science Fiction"], ["Other", "Other"]] %>
     <% book.errors.full_messages_for(:genre).each do |message| %>
         <div><%= message %></div>
         <% end %>

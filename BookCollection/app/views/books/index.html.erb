@@ -1,13 +1,47 @@
-<h1>Home Page!</h1>
-<p>Find me in app/views/books/index.html.erb</p>
-
-<ul>
-  <% @books.each do |book| %>
-    <li>
-        <%= link_to book.title, book %>
-        </a>
-    </li>
+<h1>Book Collection</h1>
+<% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
   <% end %>
-</ul>
+  <br>
+<table style="text-align: center;">
+    <tr>
+        <th>Title
+        </th>
+        <th>Author
+        </th>
+        <th>Genre
+        </th>
+        <th>Price
+        </th>
+        <th>Published Date
+        </th>
+        <th>
+        </th>
+        <th>Actions
+        </th>
+        <th>
+        </th>
+        
+    </tr>
+    <% @books.each do |book| %>
+        <tr>
+            <td><%= link_to book.title, book %>
+            </td>
+            <td><%= link_to book.author, book %>
+            </td>  
+            <td><%= link_to book.genre, book %>
+            </td>
+            <td><%= link_to book.price, book %>
+            </td>
+            <td><%= link_to book.publishedDate, book %>
+            </td>
+            <td><%= link_to "Show", book_path(book) %> </td>
+            <td><%= link_to "Edit", edit_book_path(book) %> </td>
+            <td><%= link_to "Delete", "/books/#{book.id}/delete" %></td>
+        </tr>
+      <% end %>
+</table>
 
 <%= link_to "New Book", new_book_path %>
